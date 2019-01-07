@@ -14,19 +14,19 @@
 #flex-navSupp ul li h4 {text-align:center;}
 #flex-navSupp ul li span {display:block;text-align:center;}
 #flex-navSupp a.activePage {font-weight: bold;color: #000;}
-#flex-navSupp a:hover {font-weight: bold;text-decoration: underlined;color: #000;}
+#flex-navSupp a:hover {font-weight: bold;text-decoration: underline;color: #000;}
 .col {float: left;}
 
 /* Example for styleing individual column blocks */
-ul#col_1 {background-color:#FFFFFF;color:#333;height:150px;}
-ul#col_2 {background-color:#C0C0C0;color:#333;height:150px;}
-ul#col_3 {background-color:#FF00FF;color:#333;height:150px;}
-ul#col_4 {background-color:#00FFFF;color:#333;height:150px;}
-ul#col_5 {background-color:#FFFF00;color:#333;height:150px;}
-ul#col_6 {background-color:#0000FF;color:#FFFFFF;height:150px;}
-ul#col_7 {background-color:#00FF00;color:#333;height:150px;}
-ul#col_8 {background-color:#FF0000;color:#333;height:150px;}
-ul#col_9 {background-color:#000000;color:#FFFFFF;height:150px;}
+ul#col_1 {background-color:#fff;color:#333;height:150px;}
+ul#col_2 {background-color:#c0c0c0;color:#333;height:150px;}
+ul#col_3 {background-color:#f0f;color:#333;height:150px;}
+ul#col_4 {background-color:#0ff;color:#333;height:150px;}
+ul#col_5 {background-color:#ff0;color:#333;height:150px;}
+ul#col_6 {background-color:#00f;color:#fff;height:150px;}
+ul#col_7 {background-color:#0f0;color:#333;height:150px;}
+ul#col_8 {background-color:#f00;color:#333;height:150px;}
+ul#col_9 {background-color:#000;color:#fff;height:150px;}
 
 /* Each span represents a columns width */
 .span_9_of_9 {width: 10.55%;}
