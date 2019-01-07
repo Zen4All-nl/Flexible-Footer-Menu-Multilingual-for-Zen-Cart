@@ -10,7 +10,7 @@
  *
  * @added for version 1.1 by Zen4All.nl (design75) 6-24-2015 $
  *
-**/
+ */
 
 define('HEADING_TITLE','Flexible Footer Menu Multilingual');
 
