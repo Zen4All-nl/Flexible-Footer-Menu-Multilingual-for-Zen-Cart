@@ -9,19 +9,19 @@ if (class_exists('AdminRequestSanitizer')) {
     $group = array(
         'col_header' => array('sanitizerType' => 'PRODUCT_DESC_REGEX',
                                    'method' => 'both',
-                                   'pages' => array('flexible_footer'),
+                                   'pages' => array('flexible_footer_menu'),
                                    'params' => array()),
         'page_title' => array('sanitizerType' => 'PRODUCT_DESC_REGEX',
                                    'method' => 'both',
-                                   'pages' => array('flexible_footer'),
+                                   'pages' => array('flexible_footer_menu'),
                                    'params' => array()),
         'col_html_text' => array('sanitizerType' => 'PRODUCT_DESC_REGEX',
                                    'method' => 'both',
-                                   'pages' => array('flexible_footer'),
+                                   'pages' => array('flexible_footer_menu'),
                                    'params' => array()),
         'page_url' => array('sanitizerType' => 'PRODUCT_URL_REGEX',
                                    'method' => 'both',
-                                   'pages' => array('flexible_footer'),
+                                   'pages' => array('flexible_footer_menu'),
                                    'params' => array()),
         );
     $sanitizer->addComplexSanitization($group);
