@@ -1,84 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexible Footer Menu Multilingual</title>
-    <style type="text/css" media="screen">
-
-      html {
-          padding:0px;
-          margin:0px;
-      }
-
-      body {
-          background-color: #f5f5f5;
-          font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-          font-size:12px;
-          color:#000;
-          padding:0px 20px;
-          margin:0px;
-      }
-
-      p, h2, pre {
-          margin: 0px;
-          padding: 10px;
-      }
-
-      h1 {
-          font-size: 11px;
-          text-transform:uppercase;
-          text-align: right;
-          color: #000;
-          background-color: #e6e6e6;
-          border:1px solid #cccccc;
-          padding:5px 15px;
-          margin:0px
-
-      }
-
-      h2 {
-          font-size:14px;
-          padding-top:10px;
-          text-transform:uppercase;
-          background-color: transparent;
-      }
-
-      a {
-          color: #0044cc;
-          font-size: 12px;
-          background-color:transparent;
-          text-decoration: none;
-      }
-
-      pre {
-          color: #fff;
-          font-size: 12px;
-          background-color:transparent;
-      }
-
-      #content h2 {
-          color: #000;
-      }
-
-      #content #navi h2 {
-          color: #fff;
-      }
-
-      #content {
-          border:1px solid #e6e6e6;
-          background-color:#fff;
-      }
-
-      #content #navi {
-          border:1px solid #e6e6e6;
-          float:right;
-          width:250px;
-          background-color:#0044cc;
-          margin:0px 0px 20px 20px;
-      }
-
-    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -110,7 +38,7 @@ Modified By: rbarbour & Design75<br />
       <hr />
       <h2>Installation</h2>
       <ol style="list-style-type: upper-latin">
-        <li>Backup both your Zen Cart installation and database � this plugin will will modify both.</li>
+        <li>Backup both your Zen Cart installation and database — this plugin will will modify both.</li>
         <li>Double-check the backup you just created. Better safe than sorry!</li>
         <li>Unzip the plugin's distribution zip-file into a temporary directory. Rename the "YOUR_TEMPLATE" directory to match your custom template's name and the "YOUR_ADMIN" directory to match your renamed admin folder.</li>
         <li>Your best approach for installing any new software is to use a local copy for your testing before deploying the changes to your live store. If you must install this directly on your live store, put your store into Maintenance Mode using your admin's Configuration->Maintenance Mode->Down for Maintenance setting, first. You'll then either copy the files to your local installation or use your FTP/SFTP program to copy the files to your hosted store.</li>
