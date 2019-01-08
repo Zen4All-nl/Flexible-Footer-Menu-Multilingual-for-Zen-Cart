@@ -1,14 +1,6 @@
 # Flexible Footer Menu Multilingual
 <h2>Version Info:</h2>
-<pre>
-<strike>Model: 01012015-001</strike>
-Zen Cart Version: v1.5.x
-Plugin Version: v1.3
-Original Author: rbarbour
-Modified By: rbarbour & Design75
-<strike>File Size: 89.7 KB</strike>
-        </pre>
-<h2>Flexible Footer Menu Multilingual v1.3</h2>
+<h2>Flexible Footer Menu Multilingual v1.5</h2>
 <hr />
 <h2>Installation</h2>
       <ol style="list-style-type: upper-latin">
