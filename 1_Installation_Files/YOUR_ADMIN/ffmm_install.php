@@ -140,22 +140,22 @@ if ($action == 'new_install') {
 
     foreach ($pages as $page) {
       for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
-        if ($sql_data_array) {
+        if (isset($sql_data_array)) {
           unset($sql_data_array);
         }
-        if ($sql_update_array) {
+        if (isset($sql_update_array)) {
           unset($sql_update_array);
         }
-        if ($col_header) {
+        if (isset($col_header)) {
           unset($col_header);
         }
-        if ($page_title) {
+        if (isset($page_title)) {
           unset($page_title);
         }
-        if ($col_html_text) {
+        if (isset($col_html_text)) {
           unset($col_html_text);
         }
-        if ($check_query) {
+        if (isset($check_query)) {
           unset($check_query);
         }
 
