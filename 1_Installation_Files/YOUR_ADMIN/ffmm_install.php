@@ -79,7 +79,7 @@ if ($action == 'new_install') {
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
                   VALUES (1, 'Gift Certificate FAQ', 'index.php?main_page=gv_faq', '', '', '', 1, 23, 2, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
-                  VALUES (1, 'Discount Coupons', 'index.php?main_page=discount_coupon', '', '', 'Get <font color=\"red\">5% off</font><br>\r\nyour <u>first purchase</u><br>\r\nat my <i>demo site</i>!', 1, 24, 2, NOW(), NOW())");
+                  VALUES (1, 'Discount Coupons', 'index.php?main_page=discount_coupon', '', '', 'Get <span style=\"color:red;\">5% off</span><br>\r\nyour <u>first purchase</u><br>\r\nat my <i>demo site</i>!', 1, 24, 2, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
                   VALUES (1, 'Newsletter Unsubscribe', 'index.php?main_page=unsubscribe', '', '', '', 1, 25, 2, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)

@@ -485,12 +485,12 @@ if (zen_not_null($action)) {
                     $contents[] = ['text' => '<br>' . BOX_INFO_STATUS . ' ' . ($footerInfo->status == 0 ? ICON_STATUS_RED : ICON_STATUS_GREEN)];
 
                     if (zen_not_null($footerInfo->col_image)) {
-                      $contents[] = ['text' => '<br>' . zen_image(DIR_WS_CATALOG_IMAGES . $footerInfo->col_image, $footerInfo->page_title) . '<br />' . $footerInfo->page_title];
+                      $contents[] = ['text' => zen_image(DIR_WS_CATALOG_IMAGES . $footerInfo->col_image, $footerInfo->page_title) . '<br>' . $footerInfo->page_title];
                     } else {
-                      $contents[] = ['text' => '<br>' . BOX_INFO_NO_IMAGE];
+                      $contents[] = ['text' => BOX_INFO_NO_IMAGE];
                     }
 
-                    $contents[] = ['text' => '<br>' . BOX_INFO_TEXT . '<br> ' . $footerInfo->col_html_text];
+                    $contents[] = ['text' => BOX_INFO_TEXT . '<br> ' . $footerInfo->col_html_text];
                   }
                   break;
               }
