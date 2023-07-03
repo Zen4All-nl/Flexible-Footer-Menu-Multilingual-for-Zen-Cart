@@ -26,7 +26,7 @@ define('ICON_STATUS_GREEN','Displaying on Footer Menu');
 define('ICON_STATUS_RED','Not Displaying on Footer Menu');
 define('BUTTON_NEW','Add a new Column Page');
 define('BOX_INFO_STATUS','<strong>Page Status:&nbsp;</strong>');
-define('BOX_INFO_NO_IMAGE','<strong><font color="red">No Image Uploaded</font></strong>');
+define('BOX_INFO_NO_IMAGE','<strong><span style="color:red;">No Image Uploaded</span></strong>');
 define('BOX_INFO_TEXT','<strong>Column Text/Comments:&nbsp;</strong>');
 define('SUCCESS_PAGE_STATUS_UPDATED','Flexible Footer Menu Status Updated!');
 define('TEXT_DISPLAY_NUMBER_OF_PAGES', 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> page links)');
