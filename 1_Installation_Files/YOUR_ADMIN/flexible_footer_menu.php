@@ -13,6 +13,8 @@
 require('includes/application_top.php');
 $languages = zen_get_languages(); // modification for multi-language support
 $action = (isset($_GET['action']) ? $_GET['action'] : '');
+$_GET['footerID'] = empty($_GET['footerID']) ? '' : $_GET['footerID'];
+$_GET['page'] = empty($_GET['page']) ? '' : $_GET['page'];
 if (zen_not_null($action)) {
   switch ($action) {
     case 'setflag':
@@ -160,7 +162,7 @@ if (zen_not_null($action)) {
     <!-- header_eof //-->
     <!-- body //-->
     <div class="container-fluid">
-      <h1><?php echo HEADING_TITLE . ' ' . ($_GET['footerID'] != '' ? TEXT_INFO_PAGES_ID . $_GET['footerID'] : TEXT_INFO_PAGES_ID_SELECT); ?></h1>
+      <h1><?php echo HEADING_TITLE . ' ' . (empty($_GET['footerID'])? TEXT_INFO_PAGES_ID_SELECT : TEXT_INFO_PAGES_ID . $_GET['footerID']); ?></h1>
       <div class="row">
         <!-- body_text //-->
         <?php
@@ -469,7 +471,7 @@ if (zen_not_null($action)) {
                   $contents[] = array('align' => 'center', 'text' => '<br><button type="submit" class="btn btn-danger">' . IMAGE_DELETE . '</button> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $_GET['footerID']) . '" class="btn btn-default" role="button">' . IMAGE_CANCEL . '</a>');
                   break;
                 default:
-                  if (is_object($footerInfo)) {
+                  if (isset($footerInfo) && is_object($footerInfo)) {
                     $heading[] = array('text' => '<h4>' . $footerInfo->col_header . $footerInfo->page_title . '</h4>');
 
                     $contents[] = array('align' => 'center', 'text' => '<br><a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=new') . '" class="btn btn-primary" role="button">' . IMAGE_EDIT . '</a> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=delete') . '" class="btn btn-warning">' . IMAGE_DELETE . '</a><br>');
