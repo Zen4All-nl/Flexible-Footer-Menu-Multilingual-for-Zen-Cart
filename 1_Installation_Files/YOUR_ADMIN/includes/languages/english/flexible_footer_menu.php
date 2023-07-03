@@ -52,3 +52,6 @@ define('FFM_TEXT_DELETE_IMAGE', 'Delete Image');
 define('FFM_TABLE_TITLE_HEADER', 'Header');
 define('FFM_TABLE_TITLE_PAGE_NAME', 'Page Name');
 define('FFM_TABLE_TITLE_IMAGE', 'Image');
+
+define('TEXT_INFO_PAGES_ID', 'ID:');
+define('TEXT_INFO_PAGES_ID_SELECT', 'Select a Page...');
