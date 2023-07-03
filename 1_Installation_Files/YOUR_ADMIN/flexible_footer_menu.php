@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  *
  * Flexible Footer Menu Multilingual
@@ -12,7 +14,7 @@
  */
 require('includes/application_top.php');
 $languages = zen_get_languages(); // modification for multi-language support
-$action = (isset($_GET['action']) ? $_GET['action'] : '');
+$action = $_GET['action'] ?? '';
 $_GET['footerID'] = empty($_GET['footerID']) ? '' : $_GET['footerID'];
 $_GET['page'] = empty($_GET['page']) ? '' : $_GET['page'];
 if (zen_not_null($action)) {
@@ -43,13 +45,13 @@ if (zen_not_null($action)) {
         $page_error = true;
       }
 
-      if ($page_error == false) {
+      if (!$page_error) {
         $language_id = (int)$_SESSION['languages_id'];
-        $sql_data_array = array(
+        $sql_data_array = [
           'page_url' => $page_url,
           'col_id' => $col_id,
           'col_sort_order' => $col_sort_order,
-        );
+        ];
 
         if ($action == 'insert') {
           if (empty($_POST['date_added'])) {
@@ -58,9 +60,10 @@ if (zen_not_null($action)) {
             $page_date = zen_date_raw($_POST['date_added']);
           }
 
-          $insert_sql_data = array(
+          $insert_sql_data = [
             'status' => '0',
-            'date_added' => $page_date);
+            'date_added' => $page_date
+          ];
           $sql_data_array = array_merge($sql_data_array, $insert_sql_data);
           zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU, $sql_data_array);
           $page_id = zen_db_insert_id();
@@ -69,19 +72,20 @@ if (zen_not_null($action)) {
           $col_html_text_array = zen_db_prepare_input($_POST['col_html_text']);
           for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
             $language_id = $languages[$i]['id'];
-            $sql_data_array = array(
+            $sql_data_array = [
               'page_title' => $page_title_array[$language_id],
               'col_header' => $col_header_array[$language_id],
               'col_html_text' => $col_html_text_array[$language_id],
               'language_id' => $language_id,
-              'page_id' => $page_id);
+              'page_id' => $page_id
+            ];
 
             zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU_CONTENT, $sql_data_array);
           }
           $messageStack->add_session(SUCCESS_PAGE_INSERTED, 'success');
-          zen_record_admin_activity('footer item with ID ' . (int)$page_id . ' added.', 'info');
+          zen_record_admin_activity('footer item with ID ' . $page_id . ' added.', 'info');
         } elseif ($action == 'update') {
-          $insert_sql_data = array('last_update' => 'now()');
+          $insert_sql_data = ['last_update' => 'now()'];
           $sql_data_array = array_merge($sql_data_array, $insert_sql_data);
           zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU, $sql_data_array, 'update', "page_id = " . (int)$page_id);
           $page_title_array = zen_db_prepare_input($_POST['page_title']);
@@ -89,9 +93,11 @@ if (zen_not_null($action)) {
           $col_html_text_array = zen_db_prepare_input($_POST['col_html_text']);
           for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
             $language_id = $languages[$i]['id'];
-            $sql_data_array = array('page_title' => $page_title_array[$language_id],
+            $sql_data_array = [
+                'page_title' => $page_title_array[$language_id],
               'col_header' => $col_header_array[$language_id],
-              'col_html_text' => $col_html_text_array[$language_id]);
+              'col_html_text' => $col_html_text_array[$language_id]
+            ];
 
             zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU_CONTENT, $sql_data_array, 'update', "page_id = " . (int)$page_id . " and language_id = " . (int)$language_id);
           }
@@ -187,7 +193,7 @@ if (zen_not_null($action)) {
       if ($action == 'new') {
         $form_action = 'insert';
 
-        $parameters = array(
+        $parameters = [
           'language_id' => '',
           'page_title' => '',
           'page_url' => '',
@@ -198,7 +204,7 @@ if (zen_not_null($action)) {
           'col_sort_order' => '',
           'date_added' => '',
           'status' => '0'
-        );
+        ];
 
         $footerInfo = new objectInfo($parameters);
 
@@ -443,7 +449,7 @@ if (zen_not_null($action)) {
                         if (isset($footerInfo) && is_object($footerInfo) && ($item['page_id'] == $footerInfo->page_id)) {
                           echo zen_image(DIR_WS_IMAGES . 'icon_arrow_right.gif', '');
                         } else {
-                          echo '<a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, zen_get_all_get_params(array('footerID')) . 'footerID=' . $item['page_id']) . '">' . zen_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>';
+                          echo '<a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, zen_get_all_get_params(['footerID']) . 'footerID=' . $item['page_id']) . '">' . zen_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>';
                         }
                         ?></td>
                     <td class="dataTableContent text-right">&nbsp;</td>
@@ -456,41 +462,41 @@ if (zen_not_null($action)) {
           </div>
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 configurationColumnRight">
               <?php
-              $heading = array();
-              $contents = array();
+              $heading = [];
+              $contents = [];
               switch ($action) {
                 case 'delete':
-                  $heading[] = array('text' => '<h4>' . $footerInfo->col_header . $footerInfo->page_title . '</h4>');
+                  $heading[] = ['text' => '<h4>' . $footerInfo->col_header . $footerInfo->page_title . '</h4>'];
 
-                  $contents = array('form' => zen_draw_form('pages', FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&action=delete_confirm') . zen_draw_hidden_field('footerID', $footerInfo->page_id));
-                  $contents[] = array('text' => TEXT_INFO_DELETE_INTRO);
-                  $contents[] = array('text' => '<br><b>' . $footerInfo->page_title . '</b>');
+                  $contents = ['form' => zen_draw_form('pages', FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&action=delete_confirm') . zen_draw_hidden_field('footerID', $footerInfo->page_id)];
+                  $contents[] = ['text' => TEXT_INFO_DELETE_INTRO];
+                  $contents[] = ['text' => '<br><b>' . $footerInfo->page_title . '</b>'];
                   if ($footerInfo->col_image) {
-                    $contents[] = array('text' => '<br>' . zen_draw_checkbox_field('delete_image', 'on', true) . ' ' . FFM_TEXT_DELETE_IMAGE . '?');
+                    $contents[] = ['text' => '<br>' . zen_draw_checkbox_field('delete_image', 'on', true) . ' ' . FFM_TEXT_DELETE_IMAGE . '?'];
                   }
-                  $contents[] = array('align' => 'center', 'text' => '<br><button type="submit" class="btn btn-danger">' . IMAGE_DELETE . '</button> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $_GET['footerID']) . '" class="btn btn-default" role="button">' . IMAGE_CANCEL . '</a>');
+                  $contents[] = ['align' => 'center', 'text' => '<br><button type="submit" class="btn btn-danger">' . IMAGE_DELETE . '</button> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $_GET['footerID']) . '" class="btn btn-default" role="button">' . IMAGE_CANCEL . '</a>'];
                   break;
                 default:
                   if (isset($footerInfo) && is_object($footerInfo)) {
-                    $heading[] = array('text' => '<h4>' . $footerInfo->col_header . $footerInfo->page_title . '</h4>');
+                    $heading[] = ['text' => '<h4>' . $footerInfo->col_header . $footerInfo->page_title . '</h4>'];
 
-                    $contents[] = array('align' => 'center', 'text' => '<br><a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=new') . '" class="btn btn-primary" role="button">' . IMAGE_EDIT . '</a> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=delete') . '" class="btn btn-warning">' . IMAGE_DELETE . '</a><br>');
+                    $contents[] = ['align' => 'center', 'text' => '<br><a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=new') . '" class="btn btn-primary" role="button">' . IMAGE_EDIT . '</a> <a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $footerInfo->page_id . '&action=delete') . '" class="btn btn-warning">' . IMAGE_DELETE . '</a><br>'];
 
-                    $contents[] = array('text' => '<br>' . BOX_INFO_STATUS . ' ' . ($footerInfo->status == 0 ? ICON_STATUS_RED : ICON_STATUS_GREEN));
+                    $contents[] = ['text' => '<br>' . BOX_INFO_STATUS . ' ' . ($footerInfo->status == 0 ? ICON_STATUS_RED : ICON_STATUS_GREEN)];
 
                     if (zen_not_null($footerInfo->col_image)) {
-                      $contents[] = array('text' => '<br>' . zen_image(DIR_WS_CATALOG_IMAGES . $footerInfo->col_image, $footerInfo->page_title) . '<br />' . $footerInfo->page_title);
+                      $contents[] = ['text' => '<br>' . zen_image(DIR_WS_CATALOG_IMAGES . $footerInfo->col_image, $footerInfo->page_title) . '<br />' . $footerInfo->page_title];
                     } else {
-                      $contents[] = array('text' => '<br>' . BOX_INFO_NO_IMAGE);
+                      $contents[] = ['text' => '<br>' . BOX_INFO_NO_IMAGE];
                     }
 
-                    $contents[] = array('text' => '<br>' . BOX_INFO_TEXT . '<br> ' . $footerInfo->col_html_text);
+                    $contents[] = ['text' => '<br>' . BOX_INFO_TEXT . '<br> ' . $footerInfo->col_html_text];
                   }
                   break;
               }
 
               if ((zen_not_null($heading)) && (zen_not_null($contents))) {
-                $box = new box;
+                $box = new box();
                 echo $box->infoBox($heading, $contents);
               }
               ?>
@@ -500,7 +506,7 @@ if (zen_not_null($action)) {
           <table class="table">
             <tr>
               <td><?php echo $pages_split->display_count($pages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_PAGES); ?></td>
-              <td class="text-right"><?php echo $pages_split->display_links($pages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], zen_get_all_get_params(array('page', 'info', 'x', 'y', 'ezID'))); ?></td>
+              <td class="text-right"><?php echo $pages_split->display_links($pages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], zen_get_all_get_params(['page', 'info', 'x', 'y', 'ezID'])); ?></td>
             </tr>
             <tr>
               <td class="text-right" colspan="2"><a href="<?php echo zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'action=new'); ?>" class="btn btn-primary" role="button"><?php echo IMAGE_INSERT; ?></a></td>
