@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  *
  * ZCA Flexible Footer Menu Multilingual Installation/Maintenance
@@ -18,7 +20,7 @@ $old_menu_title = 'Configure ZCA Flexible Footer Menu';
 $menu_title = 'ZCA Flexible Footer Menu Multilingual Configuration';
 $menu_text = 'Configure ZCA Flexible Footer Menu Multilingual';
 
-$action = (isset($_GET['action']) ? $_GET['action'] : '');
+$action = $_GET['action'] ?? '';
 
 if ($action == 'new_install') {
 
@@ -99,11 +101,11 @@ if ($action == 'new_install') {
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
                   VALUES (1, '', '', 'Share & Connect', '', '', 1, 4, 4, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
-                  VALUES (1, '', 'http://www.twitter.com', '', 'footer_images/twitter.png', '', 1, 41, 4, NOW(), NOW())");
+                  VALUES (1, '', 'https://www.twitter.com', '', 'footer_images/twitter.png', '', 1, 41, 4, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
-                  VALUES (1, '', 'http://www.instagram.com', '', 'footer_images/instagram.png', '', 1, 42, 4, NOW(), NOW())");
+                  VALUES (1, '', 'https://www.instagram.com', '', 'footer_images/instagram.png', '', 1, 42, 4, NOW(), NOW())");
     $db->Execute("INSERT INTO " . TABLE_FLEXIBLE_FOOTER_MENU . " (language_id, page_title, page_url, col_header, col_image, col_html_text, status, col_sort_order, col_id, date_added, last_update)
-                  VALUES (1, '', 'http://www.facebook.com', '', 'footer_images/facebook.png', '', 1, 43, 4, NOW(), NOW())");
+                  VALUES (1, '', 'https://www.facebook.com', '', 'footer_images/facebook.png', '', 1, 43, 4, NOW(), NOW())");
 
     // find next sort order in admin_pages table
     $sql = "SELECT (MAX(sort_order)+2) AS sort
@@ -184,12 +186,13 @@ if ($action == 'new_install') {
             $col_html_text = NULL;
           }
 
-          $sql_data_array = array(
+          $sql_data_array = [
             'page_title' => $page_title,
             'col_header' => $col_header,
             'col_html_text' => $col_html_text,
             'language_id' => (int)$languages[$i]['id'],
-            'page_id' => (int)$page['page_id']);
+            'page_id' => (int)$page['page_id']
+          ];
 
           zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU_CONTENT, $sql_data_array);
         } // end  if ($count_query->RecordCount() == 0)
@@ -338,12 +341,13 @@ if ($action == 'repair') {
             $col_html_text = NULL;
           }
 
-          $sql_data_array = array(
+          $sql_data_array = [
             'page_title' => $page_title,
             'col_header' => $col_header,
             'col_html_text' => $col_html_text,
             'language_id' => (int)$languages[$i]['id'],
-            'page_id' => (int)$page['page_id']);
+            'page_id' => (int)$page['page_id']
+          ];
 
           zen_db_perform(TABLE_FLEXIBLE_FOOTER_MENU_CONTENT, $sql_data_array);
         } // end  if ($count_query->RecordCount() == 0)
@@ -429,7 +433,7 @@ if ($action == 'uninstall') {
           border:1px solid #f5aca6;
       }
 
-      td.messageStackError { border-radius:0px;border:0px solid #f5aca6;}
+      td.messageStackError { border-radius:0;border:0 solid #f5aca6;}
 
       td.messageStackSuccess {
           font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
@@ -490,7 +494,7 @@ if ($action == 'uninstall') {
         <tr>
           <td class="mainffmm"><strong>Install Flexible Footer Menu Multilingual v1.0</strong> This link completely installs Flexible Footer Menu Multilingual v1.0.<br><br>
             <span class="alert">Caution: This action should only be used for NEW INSTALLATIONS. If you have a version of Flexible Footer Menu already installed, use the repair/upgrade link to upgrade to Flexible Footer Menu Multilingual v1.0.</span>
-            <div align="center">
+            <div class="text-center">
               <a href="ffmm_install.php?action=new_install" title="new_install">New Installation</a>
             </div>
           </td>
@@ -501,7 +505,7 @@ if ($action == 'uninstall') {
         <tr>
           <td class="mainffmm"><strong>Repair/Upgrade Flexible Footer Menu</strong> This link will upgrade Flexible Footer Menu to Flexible Footer Menu Multilingual v1.0.<br><br> If you are experiencing problems with Flexible Footer Menu Multilingual links not displaying in the store in some languages, try using this link. It is likely that there are some blank entries for column headers, page titles and/or html content for the language(s) that the links are not appearing in. The Repair/Upgrade link will fix this, although you will have to translate the content of those 'missing' links again.<br><br>
             <span class="alert">Caution: If you have a version of Flexible Footer Menu already installed, use the Repair/Upgrade link to install Flexible Footer Menu Multilingual v1.0.</span><br><br>
-            <div align="center">
+            <div class="text-center">
               <a href="ffmm_install.php?action=repair" title="upgrade">Repair/Upgrade Flexible Footer Menu Multilingual v1.0</a>
             </div>
           </td>
@@ -512,7 +516,7 @@ if ($action == 'uninstall') {
         <tr>
           <td class="mainffmm"><strong>Uninstall Flexible Footer Menu Multilingual</strong> This link will completely remove Admin pages, configurations and tables.<br><br>
             <span class="alert">Caution: After you uninstall, neither versions of Flexible Footer Menu WILL NOT FUNCTION, you will need to <b>Restore</b> your templates original /includes/templates/YOUR_TEMPLATE_NAME/common/tpl_footer.php file</span>
-            <div align="center">
+            <div class="text-center">
               <a href="ffmm_install.php?action=uninstall" title="Uninstall">Uninstall Flexible Footer Menu Multilingual</a>
             </div>
           </td>
