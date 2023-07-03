@@ -1,10 +1,11 @@
-# Flexible Footer Menu Multilingual
-<h2>Version Info:</h2>
-<h2>Flexible Footer Menu Multilingual v1.5</h2>
-<hr />
+# Flexible Footer Menu Multilingual v1.6beta: 
+July 2023: WORK IN PROGRESS  
+Status: working with ZC158 and php82.  
+Report bugs in the GitHub Repository.
+
 <h2>Installation</h2>
       <ol style="list-style-type: upper-latin">
-        <li>Backup both your Zen Cart installation and database — this plugin will will modify both.</li>
+        <li>Backup both your Zen Cart installation and database — this plugin will modify both.</li>
         <li>Double-check the backup you just created. Better safe than sorry!</li>
         <li>Unzip the plugin's distribution zip-file into a temporary directory. Rename the "YOUR_TEMPLATE" directory to match your custom template's name and the "YOUR_ADMIN" directory to match your renamed admin folder.</li>
         <li>Your best approach for installing any new software is to use a local copy for your testing before deploying the changes to your live store. If you must install this directly on your live store, put your store into Maintenance Mode using your admin's Configuration->Maintenance Mode->Down for Maintenance setting, first. You'll then either copy the files to your local installation or use your FTP/SFTP program to copy the files to your hosted store.</li>
@@ -45,6 +46,8 @@
       </ol>
 
 <h2>Changelog</h2>
+Version 1.6 03-07-2023 torvista: reviewed and modified for use with ZC 1.5.8 and php 8.2  
+
 Version 1.3 04-12-2017 Design75
       <ul>
         <li>Removed file "YOUR_ADMIN/includes/init_includes/overrides/init_sanitize.php", and replaced by "YOUR_ADMIN/includes/extra_datafiles/flexible_footer_sanitizer.php".<br>This eliminate the need of editing core files.<br> I also added additional fields, there are four in total:
@@ -59,22 +62,22 @@ Version 1.3 04-12-2017 Design75
       </ul>
       <p>Version 1.2 06-24-2015 Nick1973</p>
       <ul>
-        <li>added and changed includes/init_includes/overrides/init_sanitize.php -<br />
-          <br />
+        <li>added and changed includes/init_includes/overrides/init_sanitize.php -<br>
+          <br>
           Around line 214/216 depending on your editor:
-          <br />
-          <br />
-          <code>$group = array('products_description', 'coupon_desc', 'file_contents', 'categories_description', 'message_html', 'banners_html_text', 'pages_html_text', 'comments', 'products_options_comment');</code><br />
-          <br />
+          <br>
+          <br>
+          <code>$group = array('products_description', 'coupon_desc', 'file_contents', 'categories_description', 'message_html', 'banners_html_text', 'pages_html_text', 'comments', 'products_options_comment');</code><br>
+          <br>
           Changed to:
-          <br />
-          <br />
-          <code>$group = array('products_description', 'coupon_desc', 'file_contents', 'categories_description', 'message_html', 'banners_html_text', 'pages_html_text', 'comments', 'products_options_comment', 'col_html_text');</code><br />
-          <br />
-          'col_html_text' added. This ensures rendering of HTML correctly if using CK Editor or Tiny MCE.<br />
-          <br />
+          <br>
+          <br>
+          <code>$group = array('products_description', 'coupon_desc', 'file_contents', 'categories_description', 'message_html', 'banners_html_text', 'pages_html_text', 'comments', 'products_options_comment', 'col_html_text');</code><br>
+          <br>
+          'col_html_text' added. This ensures rendering of HTML correctly if using CK Editor or Tiny MCE.<br>
+          <br>
           As described by rbarbour here https://www.zen-cart.com/showthread.php?209715-Flexible-Footer-Columns-Menu-for-1-5-x/page7
-          on the 4th post.<br />
+          on the 4th post.<br>
         </li>
       </ul>
 Version 1.1 06-24-2015 Design75
