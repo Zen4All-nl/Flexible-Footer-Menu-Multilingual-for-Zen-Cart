@@ -317,7 +317,7 @@ if (zen_not_null($action)) {
             <?php echo zen_draw_label(TEXT_LINKAGE, 'page_url', 'class="col-sm-3 control-label"'); ?>
           <div class="col-sm-9 col-md-6">
             <span class="help-block"><?php echo TEXT_LINKAGE_TIP; ?></span>
-            <?php echo zen_draw_input_field('page_url', zen_not_null($footerInfo->page_url) ? $footerInfo->page_url : '', zen_set_field_length(TABLE_FLEXIBLE_FOOTER_MENU, page_url) . ' class="form-control"'); ?>
+            <?php echo zen_draw_input_field('page_url', zen_not_null($footerInfo->page_url) ? $footerInfo->page_url : '', zen_set_field_length(TABLE_FLEXIBLE_FOOTER_MENU, 'page_url') . ' class="form-control"'); ?>
           </div>
         </div>
         <div class="form-group">
