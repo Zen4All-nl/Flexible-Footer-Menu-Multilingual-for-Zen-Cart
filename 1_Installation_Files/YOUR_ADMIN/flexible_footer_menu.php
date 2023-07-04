@@ -168,7 +168,8 @@ if (zen_not_null($action)) {
     <!-- header_eof //-->
     <!-- body //-->
     <div class="container-fluid">
-      <h1><?php echo HEADING_TITLE . ' ' . (empty($_GET['footerID'])? TEXT_INFO_PAGES_ID_SELECT : TEXT_INFO_PAGES_ID . $_GET['footerID']); ?></h1>
+        <h1><?= HEADING_TITLE; ?></h1>
+        <h2><?= (empty($_GET['footerID'])? TEXT_INFO_PAGES_ID_SELECT : TEXT_INFO_PAGES_ID . $_GET['footerID']); ?></h2>
       <div class="row">
         <!-- body_text //-->
         <?php
