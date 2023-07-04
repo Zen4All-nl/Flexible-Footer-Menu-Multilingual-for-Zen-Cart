@@ -5,10 +5,10 @@
  * @package templateSystem
  * @copyright Copyright 2003-2007 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
- * 
+ *
  * @added for version 1.0 by ZCAdditions.com (rbarbour) 4-17-2013 $
 **/
- 
+
 #flex-navSupp ul {margin: 0;padding:0;list-style-type: none;text-align: center;line-height: 1.5em;}
 #flex-navSupp ul {display:block;text-align:left;}
 #flex-navSupp ul li h4 {text-align:center;}
@@ -17,7 +17,7 @@
 #flex-navSupp a:hover {font-weight: bold;text-decoration: underline;color: #000;}
 .col {float: left;}
 
-/* Example for styleing individual column blocks */
+/* Example for styling individual column blocks */
 ul#col_1 {background-color:#fff;color:#333;height:150px;}
 ul#col_2 {background-color:#c0c0c0;color:#333;height:150px;}
 ul#col_3 {background-color:#f0f;color:#333;height:150px;}
