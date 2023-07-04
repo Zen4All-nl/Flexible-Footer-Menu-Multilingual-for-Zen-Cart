@@ -374,15 +374,16 @@ if (zen_not_null($action)) {
       } else {
         ?>
         <div class="row">
+                <div><a href="<?= zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'action=new'); ?>" class="btn btn-primary" role="button"><?php echo IMAGE_INSERT; ?></a></div>
           <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 configurationColumnLeft">
             <table class="table table-hover">
               <thead>
                 <tr class="dataTableHeadingRow">
                   <th class="dataTableHeadingContent"><?php echo FFM_TABLE_TITLE_HEADER; ?></th>
                   <th class="dataTableHeadingContent"><?php echo FFM_TABLE_TITLE_PAGE_NAME; ?></th>
-                  <th class="dataTableHeadingContent"><?php echo FFM_TABLE_TITLE_IMAGE; ?></th>
-                  <th class="dataTableHeadingContent"><?php echo TABLE_COLUMN_ID; ?></th>
-                  <th class="dataTableHeadingContent"><?php echo TABLE_SORT_ORDER; ?></th>
+                  <th class="dataTableHeadingContent text-center"><?php echo FFM_TABLE_TITLE_IMAGE; ?></th>
+                  <th class="dataTableHeadingContent text-center"><?php echo TABLE_COLUMN_ID; ?></th>
+                  <th class="dataTableHeadingContent text-center"><?php echo TABLE_SORT_ORDER; ?></th>
                   <th class="dataTableHeadingContent text-center"><?php echo TABLE_STATUS; ?></th>
                   <th class="dataTableHeadingContent">&nbsp;</th>
                   <th class="dataTableHeadingContent">&nbsp;</th>
@@ -398,10 +399,11 @@ if (zen_not_null($action)) {
                                               " . TABLE_FLEXIBLE_FOOTER_MENU_CONTENT . " ft
                                          WHERE f.page_id = ft.page_id
                                          AND ft.language_id = " . (int)$_SESSION['languages_id'] . "
-                                         ORDER BY col_id ASC, col_sort_order";
+                                         ORDER BY col_id, col_sort_order";
 // end of modification
 // Split Page
 // reset page when page is unknown
+                /* steve remove split
                 if (($_GET['page'] == '' || $_GET['page'] == '1') && $_GET['footerID'] != '') {
                   $check_page = $db->Execute($flexfooter_query_raw);
                   $check_count = 1;
@@ -417,8 +419,8 @@ if (zen_not_null($action)) {
                     $_GET['page'] = 1;
                   }
                 }
-
-                $pages_split = new splitPageResults($_GET['page'], MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, $flexfooter_query_raw, $pages_query_numrows);
+               // $pages_split = new splitPageResults($_GET['page'], MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, $flexfooter_query_raw, $pages_query_numrows);
+*/
                 $flexfooter = $db->Execute($flexfooter_query_raw);
 
                 foreach ($flexfooter as $item) {
@@ -438,9 +440,9 @@ if (zen_not_null($action)) {
                       ?>
                     <td class="dataTableContent"><?php echo $item['col_header']; ?></td>
                     <td class="dataTableContent"><?php echo $item['page_title']; ?></td>
-                    <td class="dataTableContent"><?php echo zen_image((($request_type == 'SSL') ? HTTPS_SERVER . DIR_WS_HTTPS_CATALOG : HTTP_SERVER . DIR_WS_CATALOG ) . DIR_WS_IMAGES . $item['col_image']); ?></td>
-                    <td class="dataTableContent"><?php echo $item['col_id']; ?></td>
-                    <td class="dataTableContent"><?php echo $item['col_sort_order']; ?></td>
+                    <td class="dataTableContent text-center"><?php echo zen_image((($request_type == 'SSL') ? HTTPS_SERVER . DIR_WS_HTTPS_CATALOG : HTTP_SERVER . DIR_WS_CATALOG ) . DIR_WS_IMAGES . $item['col_image']); ?></td>
+                    <td class="dataTableContent text-center"><?php echo $item['col_id']; ?></td>
+                    <td class="dataTableContent text-center"><?php echo $item['col_sort_order']; ?></td>
                     <td class="dataTableContent text-center">
                         <?php echo ($item['status'] == '1' ?  '<a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $item['page_id'] . '&action=setflag&flag=0') . '">' . zen_image(DIR_WS_IMAGES . 'icon_green_on.gif', ICON_STATUS_GREEN) . '</a>' : '<a href="' . zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'page=' . $_GET['page'] . '&footerID=' . $item['page_id'] . '&action=setflag&flag=1') . '">' . zen_image(DIR_WS_IMAGES . 'icon_red_on.gif', ICON_STATUS_RED) . '</a>')
                         ?>
@@ -504,6 +506,8 @@ if (zen_not_null($action)) {
           </div>
         </div>
         <div class="row">
+            <div><a href="<?php echo zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'action=new'); ?>" class="btn btn-primary" role="button"><?php echo IMAGE_INSERT; ?></a></div>
+            <?php /* steve remove split
           <table class="table">
             <tr>
               <td><?php echo $pages_split->display_count($pages_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_EZPAGE, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_PAGES); ?></td>
@@ -513,6 +517,7 @@ if (zen_not_null($action)) {
               <td class="text-right" colspan="2"><a href="<?php echo zen_href_link(FILENAME_FLEXIBLE_FOOTER_MENU, 'action=new'); ?>" class="btn btn-primary" role="button"><?php echo IMAGE_INSERT; ?></a></td>
             </tr>
           </table>
+ <?php */ ?>
         </div>
         <?php
       }
