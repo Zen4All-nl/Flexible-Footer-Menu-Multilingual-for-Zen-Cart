@@ -43,18 +43,25 @@ define('TEXT_DELETE_IMAGE','Delete Current Image:');
 define('TEXT_DELETE_IMAGE_NO','No');
 define('TEXT_DELETE_IMAGE_YES','Yes');
 define('TEXT_LINKAGE','Add a Link:');
-define('TEXT_LINKAGE_TIP','Add a Link URL to the Column Header/Sub Header, Page Name or Image.<br>INTERNAL link URL Example: index.php?main_page=reviews<br>EXTERNAL link URL Example: http://www.zcadditions.com <b>(http://)</b> strips INTERNAL link URL and auto opens in new tab/window.');
+define('TEXT_LINKAGE_TIP','Add a Link URL to the Column Header/Sub Header, Page Name or Image.<br>
+INTERNAL link URL eg: index.php?main_page=reviews<br>
+EXTERNAL link URL eg: https://www.zen-cart.com (http(s) is removed from the link and target="_blank" is added to open in a new tab/window)');
 define('TEXT_ADD_TEXT','Column Text/Comments:');
-define('TEXT_ADD_TEXT_TIP','Add Text or Comment below Column Header/Sub Header or Page Name.<br>To add above Column Header/Sub Header or Page Name just add to the sort_order 1 less than this one.<br>You can even just enter your Text or Comment and give it it\'s own sort_order.');
+define('TEXT_ADD_TEXT_TIP','Add Text below the Column Header/Sub Header/Page Name.<br>To add above the Column Header/Sub Header/Page Name set the sort_order -1 less than this one.<br>You may enter your Text with it\'s own sort_order.');
 define('TEXT_COLUMN','Column:');
 define('TEXT_COLUMN_TIP','(Optional) I use this ONLY to group your columns on the Main Page of this plugin for ease of updating and setting sort_order. Plan for this in upcoming versions!');
 define('TEXT_COLUMN_SORT','Sort Order:');
-define('TEXT_COLUMN_SORT_TIP','<b>!important</b> Sort order must be greater than 0<br>The first list item sort order value for Column 1 should be 1, Column 2 should be 2<br>Ever list item after that should be <b>1</b>1, <b>1</b>2, <b>1</b>3 or <b>2</b>1, <b>2</b>2, <b>2</b>3 upto <b>1</b>9<br>To add more than 9 list items per column double up <b>1</b>, <b>1</b>1, <b>1</b>11, <b>1</b>111,  <b>1</b>2, <b>1</b>22, <b>1</b>222');
+define('TEXT_COLUMN_SORT_TIP','<b>Important!</b> Sort order must be greater than 0.<br>
+The first list item sort order value for Column 1 should be 1, Column 2 should be 2<br>
+Every list item after that should be <b>1</b>1, <b>1</b>2, <b>1</b>3 or <b>2</b>1, <b>2</b>2, <b>2</b>3 up to <b>1</b>9<br>
+To add more than 9 list items per column double up <b>1</b>, <b>1</b>1, <b>1</b>11, <b>1</b>111, <b>1</b>2, <b>1</b>22, <b>1</b>222');
 define('FFM_TEXT_DELETE_IMAGE', 'Delete Image');
 define('FFM_TABLE_TITLE_HEADER', 'Header');
 define('FFM_TABLE_TITLE_PAGE_NAME', 'Page Name');
 define('FFM_TABLE_TITLE_IMAGE', 'Image');
 
-define('TEXT_INFO_PAGES_ID', 'ID:');
 define('TEXT_INFO_PAGES_ID_SELECT', 'Select a Page...');
+define('TEXT_INFO_PAGES_ID', 'Page ID: ');
 define('SUCCESS_PAGE_UPDATED', 'Success: The page has been updated.');
+define('TEXT_INFO_DELETE_INTRO', 'Are you sure you want to delete this page?');
+define('SUCCESS_PAGE_REMOVED', 'Success: The page has been removed.');
