@@ -390,79 +390,62 @@ if ($action == 'uninstall') {
 ?>
 <!doctype html>
 <html <?php echo HTML_PARAMS; ?>>
-  <head>
-    <meta charset="<?php echo CHARSET; ?>">
-    <title><?php echo TITLE; ?></title>
-    <link rel="stylesheet" href="includes/stylesheet.css">
-    <link rel="stylesheet" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
-    <script src="includes/menu.js"></script>
-    <script src="includes/general.js"></script>
-    <script>
-      function init() {
-          cssjsmenu('navbar');
-          if (document.getElementById)
-          {
-              var kill = document.getElementById('hoverJS');
-              kill.disabled = true;
-          }
-      }
-    </script>
+<head>
+    <?php require DIR_WS_INCLUDES . 'admin_html_head.php'; ?>
+<style>
+    td.mainffmm {
+        color:#444;
+        border-radius:10px;
+        font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
+        padding:10px 10px 20px 10px;
+        margin:10px;
+        background:#e3f7fc;
+        border:1px solid #FCE883;
+    }
 
-    <style>
-      td.mainffmm {
-          color:#444;
-          border-radius:10px;
-          font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
-          padding:10px 10px 20px 10px;
-          margin:10px;
-          background:#e3f7fc;
-          border:1px solid #FCE883;
-      }
+    td.mainffmm.caution {
+        background:#FFFF99;
+        border:1px solid #FDDB6D;
+    }
 
-      td.mainffmm.caution {
-          background:#FFFF99;
-          border:1px solid #FDDB6D;
-      }
+    span.alert,td.messageStackError {
+        border-radius:10px;
+        font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
+        padding:10px 20px 10px 20px;
+        display:block;
+        background:#ffecec ;
+        border:1px solid #f5aca6;
+    }
 
-      span.alert,td.messageStackError {
-          border-radius:10px;
-          font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
-          padding:10px 20px 10px 20px;
-          display:block;
-          background:#ffecec ;
-          border:1px solid #f5aca6;
-      }
+    td.messageStackError { border-radius:0;border:0 solid #f5aca6;}
 
-      td.messageStackError { border-radius:0;border:0 solid #f5aca6;}
+    td.messageStackSuccess {
+        font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
+        padding:10px 20px 10px 20px;
+        display:block;
+    }
 
-      td.messageStackSuccess {
-          font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
-          padding:10px 20px 10px 20px;
-          display:block;
-      }
+    td.pageHeading {
+        color:#2ba6c6; }
 
-
-      td.pageHeading {
-          color:#2ba6c6; }
-
-      td.mainffmm>div>a {
-          border-radius:10px;
-          font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
-          padding:8px;
-          background: #e6e6e6;
-          background-image: -ms-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* IE10 Consumer Preview */
-          background-image: -moz-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Mozilla Firefox */
-          background-image: -o-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Opera */
-          background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #F5F5F5), color-stop(1, #FFFFFF));/* Webkit (Safari/Chrome 10) */
-          background-image: -webkit-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Webkit (Chrome 11+) */
-          background-image: linear-gradient(to left, #F5F5F5 0%, #FFFFFF 100%);/* W3C Markup, IE10 Release Preview */
-      }
-    </style>
-
-  </head>
-  <body onLoad="init()">
-      <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-    <!-- header_eof //-->
+    td.mainffmm>div>a {
+        border-radius:10px;
+        font-family:Tahoma,Geneva,Arial,sans-serif;font-size:12px;
+        padding:8px;
+        background: #e6e6e6;
+        background-image: -ms-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* IE10 Consumer Preview */
+        background-image: -moz-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Mozilla Firefox */
+        background-image: -o-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Opera */
+        background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #F5F5F5), color-stop(1, #FFFFFF));/* Webkit (Safari/Chrome 10) */
+        background-image: -webkit-linear-gradient(right, #F5F5F5 0%, #FFFFFF 100%);/* Webkit (Chrome 11+) */
+        background-image: linear-gradient(to left, #F5F5F5 0%, #FFFFFF 100%);/* W3C Markup, IE10 Release Preview */
+    }
+</style>
+</head>
+<body>
+<!-- header //-->
+<?php require DIR_WS_INCLUDES . 'header.php'; ?>
+<!-- header_eof //-->
     <!-- body //-->
     <table>
       <!-- body_text //-->

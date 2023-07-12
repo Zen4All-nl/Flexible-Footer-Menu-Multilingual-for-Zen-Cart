@@ -1,14 +1,19 @@
-# Flexible Footer Menu Multilingual v1.6beta: 
-July 2023: WORK IN PROGRESS  
+# Flexible Footer Menu Multilingual v1.6: 
 Status: working with ZC158 and php82.  
-Report bugs in the GitHub Repository.
-Installation
-------------
+Report bugs in the GitHub Repository:  
+https://github.com/Zen4All-nl/Flexible-Footer-Menu-Multilingual-for-Zen-Cart/issues
 
+## Installation
+
+The install creates two new tables in the database to store the data of the footer menu items.
+
+0. TEST ON A DEVELOPMENT SERVER - ALWAYS
 1.  Backup both your Zen Cart installation and database — this plugin will modify both.
 2.  Double-check the backup you just created. Better safe than sorry!
-3.  Unzip the plugin's distribution zip-file into a temporary directory. Rename the "YOUR\_TEMPLATE" directory to match your custom template's name and the "YOUR\_ADMIN" directory to match your renamed admin folder.
-4.  Your best approach for installing any new software is to use a local copy for your testing before deploying the changes to your live store. If you must install this directly on your live store, put your store into Maintenance Mode using your admin's Configuration->Maintenance Mode->Down for Maintenance setting, first. You'll then either copy the files to your local installation or use your FTP/SFTP program to copy the files to your hosted store.
+3.  Unzip the plugin's distribution zip-file into a temporary directory.  
+The template folders have been left as "responsive_classic" to allow easy/immediate testing. Duplicate those directories to match your custom template's name and the "YOUR\_ADMIN" directory to match your renamed admin folder.
+4.  Your best approach for installing any new software is to use a local copy for your testing before deploying the changes to your live store.  
+If you must install this directly on your live store, put your store into Maintenance Mode using your admin's Configuration->Maintenance Mode->Down for Maintenance setting, first. You'll then either copy the files to your local installation or use your FTP/SFTP program to copy the files to your hosted store.
 5.  Check to see if your installation already has the following template-override file. If the file is not present, copy the file from the template\_default directory; otherwise, use file-merging software to merge this plugin's changes into the file prior to copying:
     1.  /includes/templates/YOUR\_TEMPLATE/common/tpl\_footer.php
 6.  Sign into your Zen Cart admin.
@@ -37,10 +42,14 @@ Installation
 10.  Go to Tools>Flexible Footer Menu Install
 11.  Follow the Install / Upgrade or Uninstall Instructions
 
-Changelog
----------
+## Changelog
 
-Version 1.6 03-07-2023 torvista: reviewed and modified for use with ZC 1.5.8 and php 8.2 Version 1.3 04-12-2017 Design75
+Version 1.6 12-07-2023 torvista  
+Reviewed and updated all the files for use with ZC 1.5.8 and php 8.2,.
+Removed paging to show all definitions on one page.  
+I was intending to use it, but in the end went for a manually-coded solution.
+
+Version 1.3 04-12-2017 Design75
 
 *   Removed file "YOUR\_ADMIN/includes/init\_includes/overrides/init\_sanitize.php", and replaced by "YOUR\_ADMIN/includes/extra\_datafiles/flexible\_footer\_sanitizer.php".  
     This eliminate the need of editing core files.  
