@@ -37,12 +37,11 @@ if (!isset($flag_disable_footer) || !$flag_disable_footer) {
 </ul>
 </div>
 
-<!--BOF -- Flexible Footer Menu Multilingual display -->
+<!--bof Flexible Footer Menu Multilingual display -->
 <div id="flex-navSupp">
 <?php require($template->get_template_dir('tpl_flexible_footer_menu.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_flexible_footer_menu.php'); ?>
-<br /><br />
 </div>
-<!--EOF -- Flexible Footer Menu Multilingual display  -->
+<!--eof Flexible Footer Menu Multilingual display  -->
 
 </div>
 <!--eof-navigation display -->
