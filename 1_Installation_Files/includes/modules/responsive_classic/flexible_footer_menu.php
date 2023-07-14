@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  *
  * Flexible Footer Menu Multilingual
@@ -40,14 +42,19 @@ if ($footer_query->RecordCount() > 0) {
     $page_query_list_footer[$rows]['text'] = $footer['col_html_text'];
     $page_query_list_footer[$rows]['image'] = $footer['col_image'];
     $page_query_list_footer[$rows]['sort'] = $footer['col_sort_order'];
-    $URL = $footer['page_url'];
-
-    if (strpos($URL, "http://") !== false) {
+    $page_query_list_footer[$rows]['link'] = $footer['page_url'] === '' ? '#' : $footer['page_url']; // prevent html error for no link
+    $url_parts = parse_url($page_query_list_footer[$rows]['link']);
+    // if http(s): is external link
+    if (!empty($url_parts['scheme'])) {
+        $page_query_list_footer[$rows]['link'] .= '" target="_blank';
+    }
+    /* steve to remove
+    if (strpos($URL, 'http://') !== false) {
       $page_query_list_footer[$rows]['link'] = $URL . '" target="_blank ';
     } else {
       $page_query_list_footer[$rows]['link'] = $URL;
     }
+    */
   }
-
   $var_linksList = $page_query_list_footer;
 }
