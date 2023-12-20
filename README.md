@@ -1,3 +1,4 @@
+            <li>/includes/templates/YOUR_TEMPLATE/templates/tpl_flexible_footer_menu.php</li></ol></li>
 # Flexible Footer Menu Multilingual v1.6: 
 Status: working with ZC158 and php82.  
 Report bugs in the GitHub Repository:  
